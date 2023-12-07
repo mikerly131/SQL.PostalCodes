@@ -49,3 +49,7 @@ LIMIT 10;
 --10 rows in set (0.01 sec)
 
 -- Query that returns the zipcode, city, state, and county of all of the FALSE or NULL timezones.
+SELECT zip, city, state, county, timezone
+FROM zipcodes
+WHERE timezone = 'FALSE' OR timezone = NULL;
+
