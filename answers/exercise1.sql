@@ -17,10 +17,35 @@ GROUP BY state;
 
 
 -- Query that returns number of Counties by state.
-
+SELECT state, COUNT(DISTINCT county)
+FROM zipcodes
+GROUP BY state;
 
 
 -- Query that returns all of the individual timezones.
-
+SELECT DISTINCT timezone
+FROM zipcodes;
 
 -- Notice anything peculiar?
+--Yea, it looks like some mixed data types possibly, maybe zip codes, and some booleans
+SELECT DISTINCT timezone
+FROM zipcodes
+LIMIT 10;
+
+--+-------------------------+
+--| timezone                |
+--+-------------------------+
+--| America/Puerto_Rico     |
+--| America/New_York        |
+--| FALSE                   |
+--| America/Montreal        |
+--| 34033|34015|34011|34001 |
+--| 36057|36091|36035|36093 |
+--| 36001|36093|36095|36057 |
+--| 36053|36023|36067|36017 |
+--| America/Toronto         |
+--| 42085|42121|42019|42073 |
+--+-------------------------+
+--10 rows in set (0.01 sec)
+
+-- Query that returns the zipcode, city, state, and county of all of the FALSE or NULL timezones.
